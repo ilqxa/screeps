@@ -75,25 +75,25 @@ class ProtocolMinimum {
         return sources[0];
     }
     find_target_in_a_room(room) {
-        let structures = [STRUCTURE_SPAWN, STRUCTURE_EXTENSION, STRUCTURE_TOWER];
-        for (let struct of structures) {
-            var targets = room.find(
-                FIND_STRUCTURES,
-                {
-                    filter: (structure) => {
-                        return (
-                            structure.structureType == struct && 
-                            structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0
-                        )
-                    }
-                }
-            );
-            if (targets.length) {
-                targets.sort((a,b) => a.store.getFreeCapacity(RESOURCE_ENERGY) - b.store.getFreeCapacity(RESOURCE_ENERGY));
-                console.log('Protocol ' + this.name + ' set a new target at ' + targets[0].pos.x + '/' + targets[0].pos.y);
-                return targets[0];
-            }
-        };
+        // let structures = [STRUCTURE_SPAWN, STRUCTURE_EXTENSION, STRUCTURE_TOWER];
+        // for (let struct of structures) {
+        //     var targets = room.find(
+        //         FIND_STRUCTURES,
+        //         {
+        //             filter: (structure) => {
+        //                 return (
+        //                     structure.structureType == struct && 
+        //                     structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0
+        //                 )
+        //             }
+        //         }
+        //     );
+        //     if (targets.length) {
+        //         targets.sort((a,b) => a.store.getFreeCapacity(RESOURCE_ENERGY) - b.store.getFreeCapacity(RESOURCE_ENERGY));
+        //         console.log('Protocol ' + this.name + ' set a new target at ' + targets[0].pos.x + '/' + targets[0].pos.y);
+        //         return targets[0];
+        //     }
+        // };
         return room.controller;
     }
     move_to_source(creep) {

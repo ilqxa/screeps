@@ -199,7 +199,7 @@ class ProtocolMinimum {
                 this.move_to_target(creep);
                 break;
             case 'unloading':
-                this.handle_structure(creep);
+                this.handle_target(creep);
                 break;
             default:
                 console.log('Creep ' + creep.name + " don't know what next he does");

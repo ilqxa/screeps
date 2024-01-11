@@ -178,6 +178,9 @@ class ProtocolMinimum {
                 creep.memory.status = 'move_to_source';
                 console.log('Creep ' + creep.name + " couldn't harvest and returned to status " + creep.memory.status);
                 break;
+            case ERR_NOT_ENOUGH_RESOURCES:
+                this.actual_source = this.find_source_in_a_room(room);
+                break;
             default:
                 console.log(
                     'Creep ' + creep.name + " can't harvest a source at " +

@@ -36,7 +36,8 @@ class ProtocolMinimum {
     }
     move_to_source(creep) {
         const path = creep.pos.findPathTo(this.actual_source);
-        switch (creep.move(path[0].direction)) {
+        const res = creep.move(path[0].direction);
+        switch (res) {
             case OK:
                 console.log(
                     'Creep ' + creep.name + ' move to a source at ' +
@@ -46,7 +47,8 @@ class ProtocolMinimum {
             default:
                 console.log(
                     'Creep ' + creep.name + " can't move to a source at " +
-                    this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.roomName
+                    this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.roomName +
+                    ' because of error code: ' + res
                 )
             break;
         }
@@ -57,7 +59,8 @@ class ProtocolMinimum {
     }
     move_to_target(creep) {
         const path = creep.pos.findPathTo(this.actual_target);
-        switch (creep.moveTo(path[0].direction)) {
+        const res = creep.moveTo(path[0].direction);
+        switch (res) {
             case OK:
                 console.log(
                     'Creep ' + creep.name + ' move to a source at ' +
@@ -67,7 +70,8 @@ class ProtocolMinimum {
             default:
                 console.log(
                     'Creep ' + creep.name + " can't move to a source at " +
-                    this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName
+                    this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName +
+                    ' because of error code: ' + res
                 )
             break;
         }
@@ -77,7 +81,8 @@ class ProtocolMinimum {
         }
     }
     harvest_source(creep) {
-        switch (creep.harvest(this.actual_source)) {
+        const res = creep.harvest(this.actual_source);
+        switch (res) {
             case OK:
                 console.log(
                     'Creep ' + creep.name + ' harvested source at ' +
@@ -89,7 +94,8 @@ class ProtocolMinimum {
                 console.log(
                     'Creep ' + creep.name + " can't harvest a source at " +
                     this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.roomName +
-                    ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity()
+                    ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity() +
+                    ' because of error code: ' + res
                 )
             break;
         }
@@ -100,7 +106,8 @@ class ProtocolMinimum {
     }
     handle_controller(creep) {
         if (this.actual_target.structureType == STRUCTURE_CONTROLLER) {
-            switch (creep.upgradeController(this.actual_target)) {
+            const res = creep.upgradeController(this.actual_target);
+            switch (res) {
                 case OK:
                     console.log(
                         'Creep ' + creep.name + " upgrade controller at " +
@@ -112,7 +119,8 @@ class ProtocolMinimum {
                     console.log(
                         'Creep ' + creep.name + " can't upgrade controller at " +
                         this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName +
-                        ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity()
+                        ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity() +
+                        ' because of error code: ' + res
                     )
                 break;
             }
@@ -120,7 +128,8 @@ class ProtocolMinimum {
     }
     handle_structure(creep) {
         let allowed_structures = [STRUCTURE_SPAWN, STRUCTURE_EXTENSION, STRUCTURE_TOWER];
-        if (allowed_structures.includes(this.actual_target.structureType)) {
+        const res = allowed_structures.includes(this.actual_target.structureType);
+        if (res) {
             switch (creep.transfer(this.actual_target, RESOURCE_ENERGY)) {
                 case OK:
                     console.log(
@@ -133,7 +142,8 @@ class ProtocolMinimum {
                     console.log(
                         'Creep ' + creep.name + " can't transfer resources to " +
                         this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName +
-                        ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity()
+                        ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity() +
+                        ' because of error code: ' + res
                     )
                 break;
             }

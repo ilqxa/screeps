@@ -1,5 +1,3 @@
-// const Protocol = require('structures.analysis');
-
 class ProtocolMinimum {
     constructor(room) {
         this.name = 'Simple start';

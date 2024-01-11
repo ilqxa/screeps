@@ -93,7 +93,7 @@ class ProtocolMinimum {
                 )
             break;
         }
-        if (!creep.store.getFreeCapacity) {
+        if (!creep.store.getFreeCapacity()) {
             creep.memory.status = 'move_to_target';
             console.log('Creep ' + creep.name + ' has got new status: move_to_target');
         }
@@ -150,7 +150,7 @@ class ProtocolMinimum {
                 this.handle_controller(creep);
                 break;
         }
-        if (!creep.store.getUsedCapacity) {
+        if (!creep.store.getUsedCapacity()) {
             creep.memory.status = 'move_to_source';
             console.log('Creep ' + creep.name + ' has got new status: move_to_source');
         }

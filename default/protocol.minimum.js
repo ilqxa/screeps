@@ -56,6 +56,8 @@ class ProtocolMinimum {
                     console.log("We can't spawn new creep because of error code " + res);
                     break;
             }
+        } else {
+            console.log("Energy for a new spawn isn't enough");
         }
     }
     find_source_in_a_room(room) {

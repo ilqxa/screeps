@@ -35,7 +35,7 @@ class ProtocolMinimum {
     }
     interact_with_a_spawn(spawn, energyStructures) {
         if (!spawn.store.getFreeCapacity) {
-            const body = build_new_creep_body_project()
+            const body = build_new_creep_body_project(energyStructures)
             const res = spawn.spawnCreep(
                 body,
                 Game.time,

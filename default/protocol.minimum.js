@@ -136,6 +136,8 @@ class ProtocolMinimum {
                     )
                 break;
             }
+        } else {
+            console.log('Structure ' + this.actual_target.id + " isn't a controller");
         }
     }
     handle_structure(creep) {
@@ -167,14 +169,17 @@ class ProtocolMinimum {
         }
     }
     handle_target(creep) {
-        switch (this.actual_target.structureType) {
+        const type = this.actual_target.structureType;
+        switch (type) {
             case STRUCTURE_SPAWN:
             case STRUCTURE_STRUCTURE_EXTENSION:
             case STRUCTURE_TOWER:
                 this.handle_structure(creep);
+                console.log('Processing ' + type + ' as a structure');
                 break;
             case STRUCTURE_CONTROLLER:
                 this.handle_controller(creep);
+                console.log('Processing ' + type + ' as a controller');
                 break;
         }
         if (!creep.store.getUsedCapacity()) {

@@ -140,9 +140,10 @@ class ProtocolMinimum {
     }
     handle_structure(creep) {
         let allowed_structures = [STRUCTURE_SPAWN, STRUCTURE_EXTENSION, STRUCTURE_TOWER];
-        const res = allowed_structures.includes(this.actual_target.structureType);
-        if (res) {
-            switch (creep.transfer(this.actual_target, RESOURCE_ENERGY)) {
+        const is_allowed = allowed_structures.includes(this.actual_target.structureType);
+        if (is_allowed) {
+            const res = creep.transfer(this.actual_target, RESOURCE_ENERGY);
+            switch (res) {
                 case OK:
                     console.log(
                         'Creep ' + creep.name + " transfer resources to " +
@@ -159,6 +160,10 @@ class ProtocolMinimum {
                     )
                 break;
             }
+        } else {
+            console.log(
+                'Creep ' + creep.name + " can't handle a structure " + this.actual_target.id
+            );
         }
     }
     handle_target(creep) {

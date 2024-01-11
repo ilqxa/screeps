@@ -35,9 +35,9 @@ class ProtocolMinimum {
     }
     calculate_energy_structures(energyStructures) {
         return {
-            'total': energyStructures.reduce((sum, current) => sum + current.store.getCapacity, 0),
-            'free': energyStructures.reduce((sum, current) => sum + current.store.getFreeCapacity, 0)
-        }
+            'total': energyStructures.reduce((sum, current) => sum + current.store.getCapacity(), 0),
+            'free': energyStructures.reduce((sum, current) => sum + current.store.getFreeCapacity(), 0)
+        };
     }
     interact_with_a_spawn(spawn, energyStructures) {
         console.log('We have an interaction with the spawn ' + spawn.name);

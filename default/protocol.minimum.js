@@ -135,7 +135,7 @@ class ProtocolMinimum {
                 case ERR_TIRED:
                     console.log(
                         'Creep ' + creep.name + ' has some rest in moving to a target at ' +
-                        this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.roomName
+                        this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName
                     );
                     break;
             default:

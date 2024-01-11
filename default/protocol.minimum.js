@@ -40,13 +40,13 @@ class ProtocolMinimum {
             case OK:
                 console.log(
                     'Creep ' + creep.name + ' move to a source at ' +
-                    this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.room
+                    this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.roomName
                 );
                 break;
             default:
                 console.log(
                     'Creep ' + creep.name + " can't move to a source at " +
-                    this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.room
+                    this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.roomName
                 )
             break;
         }
@@ -61,13 +61,13 @@ class ProtocolMinimum {
             case OK:
                 console.log(
                     'Creep ' + creep.name + ' move to a source at ' +
-                    this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.room
+                    this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName
                 );
                 break;
             default:
                 console.log(
                     'Creep ' + creep.name + " can't move to a source at " +
-                    this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.room
+                    this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName
                 )
             break;
         }
@@ -81,13 +81,13 @@ class ProtocolMinimum {
             case OK:
                 console.log(
                     'Creep ' + creep.name + ' harvested source at ' +
-                    this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.room
+                    this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.roomName
                 );
                 break;
             default:
                 console.log(
                     'Creep ' + creep.name + " can't harvest a source at " +
-                    this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.room
+                    this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.roomName
                 )
             break;
         }
@@ -98,13 +98,13 @@ class ProtocolMinimum {
                 case OK:
                     console.log(
                         'Creep ' + creep.name + " upgrade controller at " +
-                        this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.room
+                        this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName
                     )
                 break;
                 default:
                     console.log(
                         'Creep ' + creep.name + " can't upgrade controller at " +
-                        this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.room
+                        this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName
                     )
                 break;
             }
@@ -117,13 +117,13 @@ class ProtocolMinimum {
                 case OK:
                     console.log(
                         'Creep ' + creep.name + " transfer resources to " +
-                        this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.room
+                        this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName
                     )
                 break;
                 default:
                     console.log(
                         'Creep ' + creep.name + " can't transfer resources to " +
-                        this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.room
+                        this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName
                     )
                 break;
             }

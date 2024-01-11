@@ -165,3 +165,5 @@ class ProtocolMinimum {
         }
     }
 }
+
+module.exports = ProtocolMinimum;

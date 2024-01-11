@@ -5,9 +5,57 @@ class ProtocolMinimum {
         this.name = 'Simple start';
         this.actual_source = this.find_source_in_a_room(room);
         this.actual_target = this.find_target_in_a_room(room);
+        this.body_requirements = {
+            CARRY: 1,
+            WORK: 1,
+            MOVE: 1,
+        }
+        this.body_preferences = {
+            CARRY: 3,
+            WORK: 3,
+            MOVE: 3,
+        }
     }
     static is_applicable() {
         return true;
+    }
+    check_creep_for_compliance(creep) {
+        for (let part of this.body_requirements) {
+            var owned = _.filter(creep.body, {type: part}).length
+            if (owned < this.body_requirements.part) {
+                console.log('Creep ' + creep.name + " isn't compatible for protocol " + this.name);
+                return false;
+            }
+        }
+        console.log('Creep ' + creep.name + " is compatible for protocol " + this.name);
+        return false;
+    }
+    build_new_creep_body_project(energyStructures) {
+        return [MOVE, WORK, CARRY];
+    }
+    interact_with_a_spawn(spawn, energyStructures) {
+        if (!spawn.store.getFreeCapacity) {
+            const body = build_new_creep_body_project()
+            const res = spawn.spawnCreep(
+                body,
+                Game.time,
+                {
+                    energyStructures: energyStructures,
+                    memory: {
+                        protocol: this.name,
+                        status: 'move_to_source',
+                    }
+                }
+            )
+            switch (res) {
+                case OK:
+                    console.log('We are spawning new creep');
+                    break;
+                default:
+                    console.log("We can't spawn new creep because of error code " + res);
+                    break;
+            }
+        }
     }
     find_source_in_a_room(room) {
         let sources = room.find(FIND_SOURCES_ACTIVE);

@@ -82,14 +82,14 @@ class ProtocolMinimum {
                 console.log(
                     'Creep ' + creep.name + ' harvested source at ' +
                     this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.roomName +
-                    ': ' + creep.store.getUsedCapacity + '/' + creep.store.getCapacity
+                    ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity()
                 );
                 break;
             default:
                 console.log(
                     'Creep ' + creep.name + " can't harvest a source at " +
                     this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.roomName +
-                    ': ' + creep.store.getUsedCapacity + '/' + creep.store.getCapacity
+                    ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity()
                 )
             break;
         }
@@ -105,14 +105,14 @@ class ProtocolMinimum {
                     console.log(
                         'Creep ' + creep.name + " upgrade controller at " +
                         this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName +
-                        ': ' + creep.store.getUsedCapacity + '/' + creep.store.getCapacity
+                        ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity()
                     )
                 break;
                 default:
                     console.log(
                         'Creep ' + creep.name + " can't upgrade controller at " +
                         this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName +
-                        ': ' + creep.store.getUsedCapacity + '/' + creep.store.getCapacity
+                        ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity()
                     )
                 break;
             }
@@ -126,14 +126,14 @@ class ProtocolMinimum {
                     console.log(
                         'Creep ' + creep.name + " transfer resources to " +
                         this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName +
-                        ': ' + creep.store.getUsedCapacity + '/' + creep.store.getCapacity
+                        ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity()
                     )
                 break;
                 default:
                     console.log(
                         'Creep ' + creep.name + " can't transfer resources to " +
                         this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName +
-                        ': ' + creep.store.getUsedCapacity + '/' + creep.store.getCapacity
+                        ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity()
                     )
                 break;
             }

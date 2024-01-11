@@ -34,6 +34,7 @@ class ProtocolMinimum {
         return [MOVE, WORK, CARRY];
     }
     interact_with_a_spawn(spawn, energyStructures) {
+        console.log('We have an interaction with the spawn ' + spawn.name);
         if (!spawn.store.getFreeCapacity) {
             const body = build_new_creep_body_project(energyStructures)
             const res = spawn.spawnCreep(

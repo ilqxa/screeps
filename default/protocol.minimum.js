@@ -169,17 +169,17 @@ class ProtocolMinimum {
         }
     }
     handle_target(creep) {
-        const type = this.actual_target.structureType;
-        switch (type) {
+        const structType = this.actual_target.structureType;
+        switch (structType) {
             case STRUCTURE_SPAWN:
             case STRUCTURE_STRUCTURE_EXTENSION:
             case STRUCTURE_TOWER:
                 this.handle_structure(creep);
-                console.log('Processing ' + type + ' as a structure');
+                console.log('Processing ' + structType + ' as a structure');
                 break;
             case STRUCTURE_CONTROLLER:
                 this.handle_controller(creep);
-                console.log('Processing ' + type + ' as a controller');
+                console.log('Processing ' + structType + ' as a controller');
                 break;
         }
         if (!creep.store.getUsedCapacity()) {

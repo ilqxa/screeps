@@ -91,6 +91,10 @@ class ProtocolMinimum {
                 )
             break;
         }
+        if (!creep.store.getFreeCapacity) {
+            creep.memory.status = 'move_to_target';
+            console.log('Creep ' + creep.name + ' has got new status: move_to_target');
+        }
     }
     handle_controller(creep) {
         if (this.actual_target.structureType == STRUCTURE_CONTROLLER) {

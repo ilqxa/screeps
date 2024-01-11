@@ -30,13 +30,21 @@ class ProtocolMinimum {
         console.log('Creep ' + creep.name + " is compatible for protocol " + this.name);
         return false;
     }
-    build_new_creep_body_project(energyStructures) {
+    build_new_creep_body_project(maxEnergy) {
         return [MOVE, WORK, CARRY];
+    }
+    calculate_energy_structures(energyStructures) {
+        return {
+            'total': energyStructures.reduce((sum, current) => sum + current.store.getCapacity, 0),
+            'free': energyStructures.reduce((sum, current) => sum + current.store.getFreeCapacity, 0)
+        }
     }
     interact_with_a_spawn(spawn, energyStructures) {
         console.log('We have an interaction with the spawn ' + spawn.name);
+        let energyCapacity = this.calculate_energy_structures(energyStructures);
+        console.log('We have ' + energyCapacity['free'] + '/' + energyCapacity['total'] + ' energy');
         if (!spawn.store.getFreeCapacity()) {
-            const body = this.build_new_creep_body_project(energyStructures);
+            const body = this.build_new_creep_body_project(energyCapacity['total']);
             const res = spawn.spawnCreep(
                 body,
                 Game.time,

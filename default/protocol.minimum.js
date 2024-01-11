@@ -111,7 +111,7 @@ class ProtocolMinimum {
                 )
             break;
         }
-        if (!creep.store.getFreeCapacity()) {
+        if (creep.store.getFreeCapacity() <= 1) {
             creep.memory.status = 'move_to_target';
             console.log('Creep ' + creep.name + ' has got new status: move_to_target');
         }
@@ -175,14 +175,12 @@ class ProtocolMinimum {
             case STRUCTURE_EXTENSION:
             case STRUCTURE_TOWER:
                 this.handle_structure(creep);
-                console.log('Processing ' + structType + ' as a structure');
                 break;
             case STRUCTURE_CONTROLLER:
                 this.handle_controller(creep);
-                console.log('Processing ' + structType + ' as a controller');
                 break;
         }
-        if (!creep.store.getUsedCapacity()) {
+        if (creep.store.getUsedCapacity() <= 1) {
             creep.memory.status = 'move_to_source';
             console.log('Creep ' + creep.name + ' has got new status: move_to_source');
         }

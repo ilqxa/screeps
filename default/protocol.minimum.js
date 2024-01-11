@@ -59,7 +59,7 @@ class ProtocolMinimum {
     }
     move_to_target(creep) {
         const path = creep.pos.findPathTo(this.actual_target);
-        const res = creep.moveTo(path[0].direction);
+        const res = creep.move(path[0].direction);
         switch (res) {
             case OK:
                 console.log(

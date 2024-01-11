@@ -44,6 +44,12 @@ class ProtocolMinimum {
                     this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.roomName
                 );
                 break;
+            case ERR_TIRED:
+                console.log(
+                    'Creep ' + creep.name + ' has some rest in moving to a source at ' +
+                    this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.roomName
+                );
+                break;
             default:
                 console.log(
                     'Creep ' + creep.name + " can't move to a source at " +
@@ -67,6 +73,12 @@ class ProtocolMinimum {
                     this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName
                 );
                 break;
+                case ERR_TIRED:
+                    console.log(
+                        'Creep ' + creep.name + ' has some rest in moving to a target at ' +
+                        this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.roomName
+                    );
+                    break;
             default:
                 console.log(
                     'Creep ' + creep.name + " can't move to a target at " +

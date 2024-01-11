@@ -36,14 +36,14 @@ class ProtocolMinimum {
     calculate_energy_structures(energyStructures) {
         return {
             'total': energyStructures.reduce((sum, current) => sum + current.store.getCapacity(RESOURCE_ENERGY), 0),
-            'free': energyStructures.reduce((sum, current) => sum + current.store.getFreeCapacity(RESOURCE_ENERGY), 0)
+            'used': energyStructures.reduce((sum, current) => sum + current.store.getUsedCapacity(RESOURCE_ENERGY), 0),
         };
     }
     interact_with_a_spawn(spawn, energyStructures) {
         console.log('We have an interaction with the spawn ' + spawn.name);
         let energyCapacity = this.calculate_energy_structures(energyStructures);
-        console.log('We have ' + energyCapacity['free'] + '/' + energyCapacity['total'] + ' energy');
-        if (!spawn.store.energyCapacity['free']) {
+        console.log('We have ' + energyCapacity['used'] + '/' + energyCapacity['total'] + ' energy');
+        if (energyCapacity['used'] == energyCapacity['total']) {
             const body = this.build_new_creep_body_project(energyCapacity['total']);
             const res = spawn.spawnCreep(
                 body,

@@ -1,4 +1,4 @@
-var structAnalyzer = require('protocol.minimum');
+var ProtocolMinimum = require('protocol.minimum');
 
 let protocol = new ProtocolMinimum(Game.rooms['W22S18']);
 

@@ -9,11 +9,11 @@ class ProtocolMinimum {
     static is_applicable() {
         return true;
     }
-    static find_source_in_a_room(room) {
+    find_source_in_a_room(room) {
         sources = room.find(FIND_SOURCES_ACTIVE);
         return sources[0];
     }
-    static find_target_in_a_room(room) {
+    find_target_in_a_room(room) {
         let structures = [STRUCTURE_SPAWN, STRUCTURE_STRUCTURE_EXTENSION, STRUCTURE_TOWER];
         for (let struct of structures) {
             var targets = room.find(

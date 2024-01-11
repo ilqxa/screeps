@@ -1,10 +1,9 @@
-var structAnalyzer = require('structures.analysis');
-var creepsProcessor = require('creeps.processing');
-var spawnProcessor = require('spawn.processing');
+var structAnalyzer = require('protocol.minimum');
+
+let protocol = new ProtocolMinimum(Game.rooms['W22S18']);
 
 module.exports.loop = function () {
     console.log('tick');
-    Memory.tasks = [];
     
     for (var name in Memory.creeps) {
         if (!Game.creeps[name]) {
@@ -13,22 +12,6 @@ module.exports.loop = function () {
         }
     }
     
-    for (var name in Game.structures) {
-        var structure = Game.structures[name];
-        structAnalyzer.discover_needs(structure);
-    }
-    
-    Memory.tasks = Memory.tasks.sort().reverse();
-    
-    for (var name in Game.creeps) {
-        creep = Game.creeps[name];
-        creepsProcessor.give_an_order(creep);
-    }
-    
-    for (var name in Game.spawns) {
-        spawn = Game.spawns[name];
-        spawnProcessor.give_an_order(spawn);
-    }
-    
-    
+    let creeps = _.filter(Game.creeps, function(o) {return o.memory.protocol == protocol.name});
+    creeps.forEach(creep => protocol.next_step_for_creep(creep));
 }

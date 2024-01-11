@@ -63,13 +63,13 @@ class ProtocolMinimum {
         switch (res) {
             case OK:
                 console.log(
-                    'Creep ' + creep.name + ' move to a source at ' +
+                    'Creep ' + creep.name + ' move to a target at ' +
                     this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName
                 );
                 break;
             default:
                 console.log(
-                    'Creep ' + creep.name + " can't move to a source at " +
+                    'Creep ' + creep.name + " can't move to a target at " +
                     this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName +
                     ' because of error code: ' + res
                 )

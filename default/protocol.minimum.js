@@ -172,7 +172,7 @@ class ProtocolMinimum {
         const structType = this.actual_target.structureType;
         switch (structType) {
             case STRUCTURE_SPAWN:
-            case STRUCTURE_STRUCTURE_EXTENSION:
+            case STRUCTURE_EXTENSION:
             case STRUCTURE_TOWER:
                 this.handle_structure(creep);
                 console.log('Processing ' + structType + ' as a structure');

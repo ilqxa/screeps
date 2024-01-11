@@ -164,6 +164,10 @@ class ProtocolMinimum {
                     ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity()
                 );
                 break;
+            case ERR_NOT_IN_RANGE:
+                creep.memory.status = 'move_to_source';
+                console.log('Creep ' + creep.name + " couldn't harvest and returned to status " + creep.memory.status);
+                break;
             default:
                 console.log(
                     'Creep ' + creep.name + " can't harvest a source at " +
@@ -189,6 +193,10 @@ class ProtocolMinimum {
                         ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity()
                     )
                 break;
+                case ERR_NOT_IN_RANGE:
+                    creep.memory.status = 'move_to_target';
+                    console.log('Creep ' + creep.name + " couldn't upgrade controller and returned to status " + creep.memory.status);
+                    break;
                 default:
                     console.log(
                         'Creep ' + creep.name + " can't upgrade controller at " +
@@ -215,6 +223,10 @@ class ProtocolMinimum {
                         ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity()
                     )
                 break;
+                case ERR_NOT_IN_RANGE:
+                    creep.memory.status = 'move_to_target';
+                    console.log('Creep ' + creep.name + " couldn't transfer resources and returned to status " + creep.memory.status);
+                    break;
                 default:
                     console.log(
                         'Creep ' + creep.name + " can't transfer resources to " +

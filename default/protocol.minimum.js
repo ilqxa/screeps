@@ -14,7 +14,7 @@ class ProtocolMinimum {
         return sources[0];
     }
     find_target_in_a_room(room) {
-        let structures = [STRUCTURE_SPAWN, STRUCTURE_STRUCTURE_EXTENSION, STRUCTURE_TOWER];
+        let structures = [STRUCTURE_SPAWN, STRUCTURE_EXTENSION, STRUCTURE_TOWER];
         for (let struct of structures) {
             var targets = room.find(
                 FIND_STRUCTURES,
@@ -111,7 +111,7 @@ class ProtocolMinimum {
         }
     }
     handle_structure(creep) {
-        let allowed_structures = [STRUCTURE_SPAWN, STRUCTURE_STRUCTURE_EXTENSION, STRUCTURE_TOWER];
+        let allowed_structures = [STRUCTURE_SPAWN, STRUCTURE_EXTENSION, STRUCTURE_TOWER];
         if (allowed_structures.includes(this.actual_target.structureType)) {
             switch (creep.transfer(this.actual_target, RESOURCE_ENERGY)) {
                 case OK:

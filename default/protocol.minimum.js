@@ -4,8 +4,8 @@ class ProtocolMinimum {
     constructor(room) {
         this.name = 'Simple start';
         this.room = room;
-        this.actual_source = this.find_source_in_a_room(room);
         this.actual_target = this.find_target_in_a_room(room);
+        this.actual_source = this.find_source_in_a_room(room);
         this.body_requirements = {
             CARRY: 1,
             WORK: 1,
@@ -60,7 +60,7 @@ class ProtocolMinimum {
             switch (res) {
                 case OK:
                     console.log('We are spawning new creep');
-                    this.find_target_in_a_room(this.room);
+                    // this.find_target_in_a_room(this.room);
                     break;
                 default:
                     console.log("We can't spawn new creep because of error code " + res);
@@ -82,7 +82,7 @@ class ProtocolMinimum {
                 {
                     filter: (structure) => {
                         return (
-                            structure.structureType == STRUCTURE_SPAWN && 
+                            structure.structureType == struct && 
                             structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0
                         )
                     }

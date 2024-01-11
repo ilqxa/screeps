@@ -10,7 +10,7 @@ class ProtocolMinimum {
         return true;
     }
     find_source_in_a_room(room) {
-        sources = room.find(FIND_SOURCES_ACTIVE);
+        let sources = room.find(FIND_SOURCES_ACTIVE);
         return sources[0];
     }
     find_target_in_a_room(room) {

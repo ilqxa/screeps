@@ -86,9 +86,10 @@ class ProtocolMinimum {
                     }
                 }
             );
-            targets.sort((a,b) => a.store.getFreeCapacity(RESOURCE_ENERGY) - b.store.getFreeCapacity(RESOURCE_ENERGY));
             if (targets.length) {
-                return targets.length;
+                targets.sort((a,b) => a.store.getFreeCapacity(RESOURCE_ENERGY) - b.store.getFreeCapacity(RESOURCE_ENERGY));
+                console.log('Protocol ' + this.name + ' set a new target at ' + targets[0].pos.x + '/' + targets[0].pos.y);
+                return targets[0];
             }
         };
         return room.controller;
@@ -124,7 +125,6 @@ class ProtocolMinimum {
     }
     move_to_target(creep) {
         const path = creep.pos.findPathTo(this.actual_target);
-        console.log(this.actual_target.pos);
         const res = creep.move(path[0].direction);
         switch (res) {
             case OK:

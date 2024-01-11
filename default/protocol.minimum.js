@@ -72,7 +72,17 @@ class ProtocolMinimum {
     }
     find_source_in_a_room(room) {
         let sources = room.find(FIND_SOURCES_ACTIVE);
-        return sources[0];
+        var nearest_source = undefined;
+        var nearest_distance = 1000;
+        for (let source of sources) {
+            var dist = PathFinder.search(this.actual_target.pos, source.pos).cost
+            if (dist < nearest_distance) {
+                nearest_distance = dist;
+                nearest_source = source;
+            }
+        }
+        console.log('The nearest source at ' + nearest_source.pos.x + '/' + nearest_source.pos.y);
+        return nearest_source;
     }
     find_target_in_a_room(room) {
         // let structures = [STRUCTURE_SPAWN, STRUCTURE_EXTENSION, STRUCTURE_TOWER];

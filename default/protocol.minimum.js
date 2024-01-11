@@ -36,7 +36,7 @@ class ProtocolMinimum {
     interact_with_a_spawn(spawn, energyStructures) {
         console.log('We have an interaction with the spawn ' + spawn.name);
         if (!spawn.store.getFreeCapacity()) {
-            const body = this.build_new_creep_body_project(energyStructures)
+            const body = this.build_new_creep_body_project(energyStructures);
             const res = spawn.spawnCreep(
                 body,
                 Game.time,
@@ -47,7 +47,7 @@ class ProtocolMinimum {
                         status: 'move_to_source',
                     }
                 }
-            )
+            );
             switch (res) {
                 case OK:
                     console.log('We are spawning new creep');

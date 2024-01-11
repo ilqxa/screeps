@@ -16,5 +16,5 @@ module.exports.loop = function () {
     creeps.forEach(creep => protocol.next_step_for_creep(creep));
 
     let spawns = _.filter(Game.spawns, function(o) {return o.memory.protocol == protocol.name});
-    spawns.forEach(spawn => protocol.interact_with_a_spawn(spawn, []));
+    spawns.forEach(spawn => protocol.interact_with_a_spawn(spawn, [spawn]));
 }

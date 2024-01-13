@@ -143,9 +143,9 @@ class ProtocolMinimum {
                 //     'Creep ' + creep.name + ' move to a target at ' +
                 //     this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName
                 // );
-                creep.say('Moving full');
+                // creep.say('Moving full');
                 break;
-                case ERR_TIRED:
+            case ERR_TIRED:
                     // console.log(
                     //     'Creep ' + creep.name + ' has some rest in moving to a target at ' +
                     //     this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName

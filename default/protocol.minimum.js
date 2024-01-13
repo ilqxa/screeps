@@ -150,7 +150,7 @@ class ProtocolMinimum {
                     //     'Creep ' + creep.name + ' has some rest in moving to a target at ' +
                     //     this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName
                     // );
-                    creep.say('Having a rest');
+                    // creep.say('Having a rest');
                     break;
             default:
                 // console.log(

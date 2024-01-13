@@ -110,20 +110,14 @@ class ProtocolMinimum {
                 //     'Creep ' + creep.name + ' move to a source at ' +
                 //     this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.roomName
                 // );
-                creep.say(
-                    "I'm moving to a source at " + this.actual_source.pos.x + '/' + this.actual_source.pos.y +
-                    ' in ' + this.actual_source.pos.roomName
-                );
+                creep.say('Moving empty');
                 break;
             case ERR_TIRED:
                 // console.log(
                 //     'Creep ' + creep.name + ' has some rest in moving to a source at ' +
                 //     this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.roomName
                 // );
-                creep.say(
-                    "I'm having some rest in moving to a source at " + this.actual_source.pos.x + '/' + this.actual_source.pos.y +
-                    ' in ' + this.actual_source.pos.roomName
-                );
+                creep.say('Having a rest');
                 break;
             default:
                 // console.log(
@@ -131,17 +125,13 @@ class ProtocolMinimum {
                 //     this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.roomName +
                 //     ' because of error code: ' + res
                 // );
-                creep.say(
-                    "I can't move to a source at" + this.actual_source.pos.x + '/' + this.actual_source.pos.y +
-                    ' in ' + this.actual_source.pos.roomName +
-                    ' because of error code: ' + res
-                );
+                creep.say("Can't move");
             break;
         }
         if (path.length <= 1) {
             creep.memory.status = 'loading';
             // console.log('Creep ' + creep.name + ' has got new status: loading');
-            creep.say('I has got the new status: loading');
+            creep.say('Now: loading');
         }
     }
     move_to_target(creep) {
@@ -153,20 +143,14 @@ class ProtocolMinimum {
                 //     'Creep ' + creep.name + ' move to a target at ' +
                 //     this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName
                 // );
-                creep.say(
-                    "I'm moving to a target at " +
-                    this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName
-                );
+                creep.say('Moving full');
                 break;
                 case ERR_TIRED:
                     // console.log(
                     //     'Creep ' + creep.name + ' has some rest in moving to a target at ' +
                     //     this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName
                     // );
-                    creep.say(
-                        "I'm having some rest in moving to a target at " +
-                        this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName
-                    );
+                    creep.say('Having a rest');
                     break;
             default:
                 // console.log(
@@ -174,17 +158,13 @@ class ProtocolMinimum {
                 //     this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName +
                 //     ' because of error code: ' + res
                 // );
-                creep.say(
-                    "I can't move to a target at " +
-                    this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName +
-                    ' because of error code: ' + res
-                );
+                creep.say("Can't move");
             break;
         }
         if (path.length <= 1) {
             creep.memory.status = 'unloading';
             // console.log('Creep ' + creep.name + ' has got new status: unloading');
-            creep.say('I has got the new status: unloading');
+            creep.say('Now: unloading');
         }
     }
     harvest_source(creep) {
@@ -196,16 +176,12 @@ class ProtocolMinimum {
                 //     this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.roomName +
                 //     ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity()
                 // );
-                creep.say(
-                    "I'm harvesting a source at " +
-                    this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.roomName +
-                    ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity()
-                );
+                creep.say('Harvesting');
                 break;
             case ERR_NOT_IN_RANGE:
                 creep.memory.status = 'move_to_source';
                 // console.log('Creep ' + creep.name + " couldn't harvest and returned to status " + creep.memory.status);
-                creep.say("I couldn't harvest and returned to status " + creep.memory.status);
+                creep.say('Now: moving to source');
                 break;
             case ERR_NOT_ENOUGH_RESOURCES:
                 this.actual_source = this.find_source_in_a_room(room);
@@ -217,12 +193,7 @@ class ProtocolMinimum {
                 //     ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity() +
                 //     ' because of error code: ' + res
                 // );
-                creep.say(
-                    "I can't harvest a source at " +
-                    this.actual_source.pos.x + '/' + this.actual_source.pos.y + ' ' + this.actual_source.pos.roomName +
-                    ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity() +
-                    ' because of error code: ' + res
-                )
+                creep.say("Can't move");
             break;
         }
         if (creep.store.getFreeCapacity() <= 1) {
@@ -241,16 +212,12 @@ class ProtocolMinimum {
                     //     this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName +
                     //     ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity()
                     // );
-                    creep.say(
-                        "I'm upgrading the controller at " +
-                        this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName +
-                        ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity()
-                    );
+                    creep.say('Upgrading');
                 break;
                 case ERR_NOT_IN_RANGE:
                     creep.memory.status = 'move_to_target';
                     // console.log('Creep ' + creep.name + " couldn't upgrade controller and returned to status " + creep.memory.status);
-                    creep.say("I couldn't upgrade controller and returned to status " + creep.memory.status);
+                    creep.say('Now: move to target');
                     break;
                 default:
                     // console.log(
@@ -259,12 +226,7 @@ class ProtocolMinimum {
                     //     ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity() +
                     //     ' because of error code: ' + res
                     // );
-                    creep.say(
-                        "I couldn't upgrade controller at " +
-                        this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName +
-                        ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity() +
-                        ' because of error code: ' + res
-                    )
+                    creep.say("Can't upgrade");
                 break;
             }
         } else {
@@ -283,16 +245,12 @@ class ProtocolMinimum {
                     //     this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName +
                     //     ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity()
                     // );
-                    creep.say(
-                        "I'm transfering resources to " +
-                        this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName +
-                        ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity()
-                    )
+                    creep.say('Transferring');
                 break;
                 case ERR_NOT_IN_RANGE:
                     creep.memory.status = 'move_to_target';
                     // console.log('Creep ' + creep.name + " couldn't transfer resources and returned to status " + creep.memory.status);
-                    creep.say("I couldn't transfer resources and returned to status " + creep.memory.status);
+                    creep.say('Now: move to target');
                     break;
                 default:
                     // console.log(
@@ -301,17 +259,12 @@ class ProtocolMinimum {
                     //     ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity() +
                     //     ' because of error code: ' + res
                     // );
-                    creep.say(
-                        "I couldn't transfer resources to " +
-                        this.actual_target.pos.x + '/' + this.actual_target.pos.y + ' ' + this.actual_target.pos.roomName +
-                        ': ' + creep.store.getUsedCapacity() + '/' + creep.store.getCapacity() +
-                        ' because of error code: ' + res
-                    )
+                    creep.say("Can't transfer");
                 break;
             }
         } else {
             // console.log('Creep ' + creep.name + " can't handle a structure " + this.actual_target.id);
-            creep.say("I couldn't handle a structure " + this.actual_target.id);
+            creep.say("Can't handle a structure");
         }
     }
     handle_target(creep) {
@@ -329,7 +282,7 @@ class ProtocolMinimum {
         if (creep.store.getUsedCapacity() <= 1) {
             creep.memory.status = 'move_to_source';
             // console.log('Creep ' + creep.name + ' has got new status: move_to_source');
-            creep.say("I've got new status: move_to_source");
+            creep.say("now: move to source");
         }
     }
     next_step_for_creep(creep) {
@@ -348,7 +301,7 @@ class ProtocolMinimum {
                 break;
             default:
                 // console.log('Creep ' + creep.name + " don't know what next he does");
-                creep.say("I don't know what next he does");
+                creep.say("What now?");
                 break;
         }
     }
